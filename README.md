@@ -1,5 +1,4 @@
 # Downtown_Books
-
 A Full Stack project created with Node js on the server side and HTML(created via Pug templating engine), CSS and JS on the client Side, using MongoDB as database.
 
   - Dynamic creation of html pages is made possible with the help of pug templating engine.
