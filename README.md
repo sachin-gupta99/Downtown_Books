@@ -5,6 +5,7 @@ A Full Stack project created with Node js on the server side and HTML(created vi
 
   - Dynamic creation of html pages is made possible with the help of pug templating engine.
   - Login and Signup feature is added with an additional OTP verification included during the signup process.Invalid credentials leads to corresponding messages to be flashed.
+  - The password entered by you while signing up goes through 12 rounds of salting and hashing which is at par with industry standards. Thus the decryption of passwords stored in the database is next to impossible.
   - Admin can add, delete or update the products by login with the admin credentials.
   - Pagination has been included to restrict all the products to be shown in one page.
   - The products can be added to cart which includes - and + buttons to alter the quantities of the products.
