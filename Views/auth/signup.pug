@@ -1,0 +1,25 @@
+extends ../layout/main-layout.pug
+
+block styles 
+    link(rel="stylesheet", href="/auth.css")
+
+block content 
+    if message
+        .errorMessage 
+            h2 #{message}
+    form(action="/signup", method="POST") 
+        .main-div
+            .label
+                label(for="name")#name-label Name :
+                br
+                label(for="email")#email-label Email :
+                br
+                label(for="password")#password-label Password :
+            .input
+                input(type="text", name="name", value=(oldInput ? oldInput.name : ''))#name
+                br
+                input(type="text", name="email", value=(oldInput ? oldInput.email : ''))#email
+                br
+                input(type="password", name="password", value=(oldInput ? oldInput.password : ''))#password
+        center 
+            button Sign Up

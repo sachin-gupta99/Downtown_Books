@@ -1,0 +1,45 @@
+extends ../layout/main-layout
+block styles 
+    link(rel="stylesheet", href="/cart.css")
+
+block content 
+    if message 
+        .errorMessage 
+            h2 #{message}
+    if products.length > 0
+        main
+            each item in products                
+                .individual-products 
+                    .individual-products__image 
+                        img(src=item.image, alt=item.title)
+                    .individual-products__detail 
+                        .individual-products__title
+                            p(style="margin:0") #{item.title}
+                        .individual-products__description 
+                            p(style="font-size: 20px; margin: 0; font-weight: bold;") About :
+                            p(style="margin:0") #{item.description}
+                        .individual-products__price
+                            p(style="margin:0") Price : ₹ #{item.price}
+                        .individual-products__btn 
+                            p(style="margin:5px") Quantity : 
+                                form(action="/cart-decrease-item", method="POST") 
+                                    input(type="hidden", name="productId", value=item._id)
+                                    button.individual-products__btn_minus -
+                                
+                                span(style="margin:7px") #{item.quantity}
+                                form(action="/cart-increase-item", method="POST") 
+                                    input(type="hidden", name="productId", value=item._id)
+                                    button.individual-products__btn_plus +
+                br
+                hr
+        footer.totalPrice
+            label(for="price", style="margin-right: 10px; float: left; padding: 10px") Total Price : ₹
+            input(type="number" id="price" readonly value=totalPrice)
+
+            form(action="/checkout", method="POST")
+                button(type="submit").btn Checkout >>> 
+    else 
+        center 
+            h1(style="margin-top: 300px") Cart is Empty
+    
+    

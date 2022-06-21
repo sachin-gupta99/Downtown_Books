@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title DB-#{pageTitle}
+        link(rel="stylesheet", href="/shop.css")
+        block styles
+    body 
+        header.main-header 
+            nav.main-header__nav    
+                ul.main-header__list
+                    li.main-header__item 
+                        a(class={active: path === '/'}, href="/") Shop
+
+                    if isAdmin == true                            
+                        li.main-header__item
+                            a(href="/admin/add-products", class={active: path === '/admin/add-products'}) Add Product  
+
+                    li.main-header__item 
+                        a(href="/products", class={active: path === '/products'}) Products
+                        
+                    if isAuthenticated == true
+                        li.main-header__item 
+                            a(href="/cart", class={active: path === '/cart'}) Cart     
+                        li.main-header__item 
+                            a(href="/orders", class={active: path === '/orders'}) Orders
+                            
+                    if isAdmin        
+                        li.main-header__item 
+                            a(href="/admin/products", class={active: path === '/admin/products'}) Admin Products 
+
+                    if !isAuthenticated
+                        li.main-header__item 
+                            a(href="/login", class={active: path === '/login'}) Login
+                        li.main-header__item 
+                            a(href="/signup", class={active: path === '/signup'}) SignUp 
+
+                    if isAuthenticated
+                        li.main-header__item 
+                            a(href="/logout", class={active: path === '/logout'}) LogOut 
+                        
+        block content

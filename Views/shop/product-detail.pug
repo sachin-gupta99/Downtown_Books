@@ -1,0 +1,40 @@
+extends ../layout/main-layout.pug
+
+block styles 
+    link(rel="stylesheet", href="/products.css")
+
+block content 
+    if prods.length > 0
+        main.main
+            each product in prods
+                if product.title!=''
+                    .individual-card
+                        .card-header
+                            h3(style="margin:0; margin-bottom:20px") #{product.title}
+                        .card-image
+                            img(src=product.image, alt="books")
+                        .card-details
+                            p(style="margin:0") #{product.description}
+                        .card-price
+                            p(style="margin: 0; margin-bottom:20px") Price : ₹#{product.price}
+                        center
+                            form(action="/products/"+product._id).productDetail
+                                button.btn Details
+                            if isAuthenticated
+                                form(action="/cart", method="POST").addToCart
+                                    input(type="hidden", name="productId", value=product._id)
+                                    button.btn Add To Cart  
+        .pagination 
+            .prevPage
+                if page != 1
+                    a(href="/products/?page="+(page-1)) <<< Prev
+            .currPage
+                a(href="/products/?page="+page) #{page}
+            .nextPage
+                if page != lastPage
+                    a(href="/products/?page=" + (page+1)) Next >>>                       
+    else 
+        h1 No Products Found
+        
+        
+

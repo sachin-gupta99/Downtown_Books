@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Checkout
+        link(rel="stylesheet", href="/checkout.css")
+        script(src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch")
+        script(src="https://js.stripe.com/v3/")
+    body 
+        section 
+            .all-products
+                table
+                    tr 
+                        th Title 
+                        th Quantity 
+                        th Price 
+                        th Total 
+                - var totalPrice = 0;
+                each product in products
+                    .individual-product
+                        .individual-product-title
+                            p #{product.productId.title}
+                        .individual-product-quantity
+                            p #{product.quantity}
+                        .individual-product-price
+                            p ₹#{product.productId.price}
+                        .individual-product-total
+                            - var amount = product.productId.price*product.quantity;
+                            - totalPrice += amount;
+                            p ₹#{amount}
+
+                
+            .total
+                .text
+                    p To Be Paid : 
+                .totalPrice
+                    p ₹#{totalPrice}
+            center 
+                form(action="/create-checkout-session", method="POST") 
+                    button(type="submit", id="payment-button") Proceed To Payment >>>
+                    

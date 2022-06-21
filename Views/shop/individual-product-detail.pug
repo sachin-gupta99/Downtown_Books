@@ -1,0 +1,16 @@
+extends ../layout/main-layout
+
+block content
+    .heading
+        h1 #{product.title}
+    hr(style="border:2px solid brown")
+    hr(style="border:2px solid brown")
+    .image 
+        center 
+            img(src=product.image, alt=product._id).actualImage
+    .description 
+        h4 #{product.description}
+    .price 
+        h3 Price : ₹#{product.price}
+    
+

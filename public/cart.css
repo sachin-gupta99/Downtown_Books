@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+.individual-products {
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+}
+
+.individual-products__image {
+    width: 22%;
+    float: left;
+    height: inherit;
+}
+
+.individual-products__image img {
+    width: 100%;
+    height: 95%;
+}
+
+.individual-products__detail {
+    font-size: 25px;
+    width: 75%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    float: right;
+}
+
+.individual-products__title {
+    font-weight: bold;
+    font-size: 30px;
+    width: 50%;
+    order: 1;
+}
+
+.individual-products__price {
+    width: 50%;
+    text-align: right;
+    order:2;
+}
+
+
+.individual-products__description {
+    font-size: 25px;
+    width: 50%;
+    height: 50%;
+    order: 3;
+    overflow:auto;
+}
+
+
+.individual-products__btn {
+    display: flex;
+    width: 50%;
+    justify-content: right;
+    order:4;
+}
+
+.individual-products__btn_plus, .individual-products__btn_minus {
+    width: 25px;
+    padding: 0 5px;
+    margin: 5px;
+    text-align: center;
+    background-color: white;
+    border: 2px solid brown;
+    font-size: 25px;
+    color: brown;
+    border-radius: 5px;
+}
+
+.individual-products__btn_plus:hover, .individual-products__btn_minus:hover {
+    color: white;
+    background-color: brown;
+    cursor: pointer;
+    box-shadow: 0 3px 3px 0 brown;
+}
+
+.totalPrice {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+}
+
+.totalPrice input {
+    border: 2px solid brown;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: right;
+    border-radius: 5px;
+    font-size: 30px;
+    float: left;
+}
+
+hr {
+    border: 2px solid brown;
+}
+
+.btn{
+    border: 2px solid brown;
+    border-radius: 5px;
+    float: right;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    color: brown;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.btn:hover {
+    background-color: brown;
+    color: white;
+    cursor: pointer;
+    border: 2px solid yellowgreen;
+}
+
+.errorMessage {
+    width: 30rem;
+    margin: auto;
+    padding: 5px;
+    border: 2px solid red;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: rgb(238, 164, 164);
+    color: red;
+    text-align: center;
+    font-size: 15px;
+}

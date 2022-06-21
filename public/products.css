@@ -1,0 +1,122 @@
+.main {
+    margin: 15px;
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.individual-card {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 20%;
+    height: 425px;
+    padding: 25px;
+    border: 2px solid brown;
+    box-shadow: 0 2px 5px 0 brown;
+}
+
+.individual-card:hover {
+    box-shadow: 0 5px 10px 0 brown;
+}
+
+.card-header {
+    display: block;
+    text-align: center;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+}
+
+.card-image img {
+    width: inherit;
+    height: inherit;
+}
+
+.card-details {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.25vw;
+    height: 50px;
+    font-weight: bold;
+    text-align: center;
+    overflow: auto;
+}
+
+.card-price {
+    font-size: 1.25vw;
+    font-weight: bold;
+    text-align: center;  
+}
+
+.btn{
+    border: 2px solid brown;
+    border-radius: 5px;
+    width: 7vw;
+    height: 3.5vw;
+    background-color: white;
+    color: brown;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: brown;
+    color: white;
+    cursor: pointer;
+    border: 2px solid yellowgreen;
+}
+
+.productDetail, .addToCart {
+    margin: 10px;
+}
+
+.pagination {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.prevPage {
+    order: 1;
+    width: 40%;
+    text-align: right;
+}
+
+.currPage {
+    order: 2;
+    width: 20%;
+    text-align: center;
+}
+
+.nextPage {
+    order: 3;
+    width: 40%;
+    text-align: left;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
+    margin: 10px;
+    border: 2px solid brown;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.pagination a:hover,
+.pagination a:active {
+    color: white;
+    background-color: brown;
+    box-shadow: 3px 0 3px 0 rgb(63, 57, 57);
+}
+
+
+@media screen and (min-width : 1200px) {
+    .productDetail, .addToCart {
+        display: inline-block;
+        width: 40%;
+    }
+}

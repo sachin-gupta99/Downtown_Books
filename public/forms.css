@@ -1,0 +1,56 @@
+.main-form {
+    width: 40%;
+    margin: auto;
+    padding: 50px;
+} 
+
+.title-box {
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    border : 3px solid brown;
+    box-shadow: 5px 2px 3px 1px brown;
+    border-radius: 5px;
+    resize: none;
+}
+
+.title-submit-button {
+    margin-top: 20px;
+    height: 50px;
+    width: 200px;
+    background-color: white;
+    color: brown;
+    font-weight: bold;
+    border: 5px solid brown;
+    border-radius: 5px;
+    
+}
+
+.label-title-box {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+    width: 100%;
+
+}
+
+.title-submit-button:hover {
+    background-color: brown;
+    color: white;
+    border: 3px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px 0 brown;
+}
+
+.errorMessage {
+    width: 30rem;
+    margin: auto;
+    padding: 5px;
+    border: 2px solid red;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: rgb(238, 164, 164);
+    color: red;
+    text-align: center;
+    font-size: 15px;
+}

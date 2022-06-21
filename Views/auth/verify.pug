@@ -1,0 +1,18 @@
+extends ../layout/main-layout.pug
+
+block styles 
+    link(rel="stylesheet", href="/auth.css")
+
+block content 
+    .errorMessage 
+        h2 An OTP has been sent to your email-id
+    form(action="/verify", method="POST") 
+        .main-div
+            .label
+                label(for="userOtp")#password-label OTP :
+            .input
+                input(type="hidden", name="name", value=name)
+                input(type="hidden", name="email", value=email)
+                input(type="text", name="userOtp")#userOtp
+        center 
+            button(type="submit") Sign Up

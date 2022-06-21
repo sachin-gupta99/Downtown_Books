@@ -1,0 +1,35 @@
+extends ../layout/main-layout.pug
+
+block styles 
+    link(rel="stylesheet", href="/forms.css")
+
+block content
+    
+    main 
+        if message
+            .errorMessage 
+                h2 #{message}
+        form(action="/admin/update-product" method="POST", class="main-form", enctype="multipart/form-data")
+            label(for="title", class="label-title-box") Title :
+            br
+            input(type="text", name="title", class="title-box", value=productDetail.title)#title
+            br
+            label(for="image", class="label-title-box") Image URL :
+            br
+            input(type="text", name="image", class="title-box", value=productDetail.image)#image
+            br
+            label(for="price", class="label-title-box") Price :
+            br
+            input(type="number", name="price", step=".01", class="title-box", value=productDetail.price)#price
+            br
+            label(for="description", class="label-title-box") Description :
+            br
+            textarea(name="description", id="description", cols="30", rows="10").title-box #{productDetail.description}  
+            br
+            label(for="pdfFile", class="label-title-box") File :
+            br
+            input(type="file", name="pdfFile", id="pdfFile", class="title-box")
+            br 
+            input(type="hidden", name="id", value=productDetail._id)
+            center 
+                button(type="submit").title-submit-button Edit Product

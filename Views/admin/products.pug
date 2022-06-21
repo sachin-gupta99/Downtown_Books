@@ -1,0 +1,40 @@
+extends ../layout/main-layout
+
+block styles 
+    link(rel="stylesheet", href="/products.css")
+
+block content 
+    if prods.length > 0
+        main.main
+            each product in prods
+                if product.title!=''
+                    .individual-card
+                        .card-header
+                            h3(style="margin:0; margin-bottom:20px") #{product.title}
+                        .card-image
+                            img(src=product.image, alt="books")
+                        .card-details
+                            p(style="margin:0") #{product.description}
+                        .card-price
+                            p(style="margin: 0; margin-bottom:20px") Price : ₹#{product.price}
+                        center
+                            form(action="/admin/delete-product", method="POST").productDetail
+                                input(type="hidden", name="productId", value=product.id)
+                                button.btn Delete
+                            form(action="/admin/edit-products", method="POST").addToCart
+                                input(type="hidden", name="productId", value=product.id)
+                                button.btn Edit
+        .pagination 
+            .prevPage
+                if page != 1
+                    a(href="/admin/products/?page="+(page-1)) <<< Prev
+            .currPage
+                a(href="/admin/products/?page="+page) #{page}
+            .nextPage
+                if page != lastPage
+                    a(href="/admin/products/?page=" + (page+1)) Next >>>                        
+    else 
+        h1 No Products Found
+        
+        
+

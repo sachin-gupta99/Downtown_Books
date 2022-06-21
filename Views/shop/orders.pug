@@ -1,0 +1,37 @@
+extends ../layout/main-layout
+
+block styles
+    link(rel="stylesheet", href="/order.css")
+
+block content
+    if orders.length > 0 
+        each order in orders
+            .main-order 
+                - var totalPrice = 0;
+                p.order_id OrderId : #{order._id}
+                .individual-order 
+                    ol 
+                        each orderItem in order.productInfo
+                            li 
+                                .individual-order-item 
+                                    .individual-order-item-name 
+                                        p.item-title #{orderItem.title}
+                                    .individual-order-item-pq 
+                                        pre.item-pq Price : $#{orderItem.price},       Quantity : #{orderItem.quantity}
+                                        - 
+                                            var amount = orderItem.price*orderItem.quantity;
+                                            totalPrice += amount;
+
+                                        pre.item-pq.item-amount Amount : ₹#{amount}
+
+
+                hr
+                .price-and-invoice 
+                    .totalPrice 
+                        p Total Price : ₹#{totalPrice}
+                    .invoice
+                        a(href="/order/"+order._id) Download Invoice 
+    
+    else 
+        center 
+            h1(style="margin-top: 300px") Nope!! It doesn't work this way. First buy something.
